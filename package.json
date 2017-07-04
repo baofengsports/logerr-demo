@@ -1,0 +1,16 @@
+{
+  "name": "remote-logerr",
+  "version": "1.0.0",
+  "description": "Log JavaScript Errors in Realtime",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vaibhav Mehta",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}

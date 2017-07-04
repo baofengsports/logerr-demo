@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="./logerr.js"></script>
+    </head>
+    <body>
+    	<h1>aaa</h1>
+    	<script type="text/javascript">
+    		Logerr.init({
+    			badge: '暴风号',
+				remoteLogging: true, //Checkout https://github.com/i-break-codes/logerr-remote
+				remoteSettings: {
+					url: 'http://localhost:8901/log',
+					additionalParams: {
+					  logged_by: 'Sam'
+					},
+					successCallback: function () {
+					  console.log('Im logged.');
+					},
+					errorCallback: function () {
+					  console.log('Err! Something went wrong.');
+					}
+				}
+			});
+
+    	</script>
+    	<script type="text/javascript">
+    		// ss.aa = 1;
+
+    		// console.log 'hello');
+
+    		// new Array(-1)
+
+    		// var obj = {}; obj.unknownMethod() 
+
+    		decodeURI('%2') 
+
+
+    	</script>
+    </body>
+</html>

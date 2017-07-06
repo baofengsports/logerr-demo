@@ -8,7 +8,7 @@
  * @version    1.2 Stable
  */
  
-var Logerr = function() {
+var Logerr = window.Logerr = function() {
   'use strict';
   
   var setConfig;
@@ -114,7 +114,7 @@ var Logerr = function() {
   }
   
   function _errorData(e) {
-    var filename = e.filename.lastIndexOf('/');
+    var filename = e.filename ? e.filename.lastIndexOf('/') : -1;
     var datetime = new Date().toString();
     
     /**
@@ -122,13 +122,13 @@ var Logerr = function() {
      */
 
     return {
-      badge: setConfig.badge,
-      type: e.type,
-      path: e.filename,
-      filename: e.filename.substring(++filename),
-      line: e.lineno,
-      column: e.colno,
-      error: e.message,
+      badge: setConfig.badge ? setConfig.badge : '',
+      type: e.type ? e.type : '',
+      path: e.filename ? e.filename : '',
+      filename: filename !== -1 ? e.filename.substring(++filename) : '',
+      line: e.lineno ? e.lineno : '',
+      column: e.colno ? e.colno : '',
+      error: e.message ? e.message : '',
       stackTrace: ((e.error) ? e.error.stack.toString().replace(/(\r\n|\n|\r)/gm,"") : ""),
       datetime: datetime,
       userAgent: navigator.userAgent || window.navigator.userAgent
@@ -156,9 +156,10 @@ var Logerr = function() {
       return target;
     };
   }
-  
+
   return {
-    init: init
+    init: init,
+    log: _listener
   };
   
 }();
